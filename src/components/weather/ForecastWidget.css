@@ -1,0 +1,39 @@
+/* Forecast */
+.forecast-card .title-2 {
+  margin-block-end: 0;
+}
+
+.forecast-card :is(.card-item, .icon-wrapper) {
+  display: flex;
+  align-items: center;
+}
+
+.forecast-card .card-item:not(:last-child) {
+  margin-block-end: 12px;
+}
+
+.forecast-card .icon-wrapper {
+  gap: 8px;
+}
+
+.forecast-card .label-1 {
+  color: var(--on-surface-variant);
+  font-weight: var(--weight-semiBold);
+}
+
+.forecast-card .card-item > .label-1 {
+  width: 100%;
+  text-align: right;
+}
+
+.forecast-card {
+  /* background-image: linear-gradient(to left top, #ff76a8, #f67faa, #ec87ac, #e28fad, #d896ae); */
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.card-item {
+  color: #fff;
+}

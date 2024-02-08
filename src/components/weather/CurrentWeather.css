@@ -1,0 +1,129 @@
+.current-location-title {
+  color: #fff;
+  display: flex;
+}
+
+.card {
+  /* background-color: var(--surface); */
+  background: rgba( 255, 255, 255, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 2px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: var(--white);
+}
+
+.card-lg {
+  border-radius: var(--radius-28);
+  padding: 20px;
+}
+
+.card-sm {
+  padding: 16px;
+  border-radius: var(--radius-16);
+}
+
+.heading {
+  color: #fff;
+  font-size: 5rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.title-1 {
+  font-size: var(--title-1);
+}
+
+.title-2 {
+  font-size: var(--title-2);
+  margin-block-end: 12px;
+}
+
+.title-3 {
+  font-size: var(--title-3);
+  font-weight: var(--weight-semiBold);
+}
+
+.body-1 {
+  font-size: var(--body-1);
+}
+
+.body-2 {
+  font-size: var(--body-2);
+  font-weight: var(--weight-semiBold);
+}
+
+.body-3 {
+  font-size: var(--body-3);
+  text-align: center;
+  color: #fff;
+}
+
+.label-1 {
+  font-size: var(--label-1);
+}
+
+.label-2 {
+  font-size: var(--label-2);
+}
+
+.fade-in {
+  animation: fade-in 1000ms ease forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.section:not(:last-child) {
+  margin-block-end: 16px;
+}
+
+.current-weather-card {
+  /* background: url("../../assets/weather_background/1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+.current-weather-card .weapper {
+  margin-block: 12px;
+  /* display: flex; */
+  /* gap: 8px; */
+  /* align-items: center; */
+}
+
+.current-weather-card .weather-icon {
+  margin-inline: auto;
+}
+
+.current-weather-card > .body-3 {
+  text-transform: capitalize;
+}
+
+.current-weather-card .meta-list {
+  margin-block-start: 16px;
+  padding-block-start: 16px;
+  /* border-block-start: 1px solid var(--outline); */
+}
+
+.current-weather-card .meta-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.current-weather-card .meta-item:not(:last-child) {
+  margin-block-end: 12px;
+}
+
+.current-weather-card .meta-text {
+  color: var(--on-surface-variant);
+}
