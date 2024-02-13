@@ -8,14 +8,16 @@ const Forecast = ({ selectData, forecastData }) => {
       aria-labelledby="forecast-label"
       data-5-day-forecast
     >
-      <h2 className="title-2" id="forecast-label">
-        Full Day Forecast
-      </h2>
-
       {forecastData &&
         forecastData.list &&
         forecastData.list[0] &&
         forecastData.list[0].dt && (
+          <>
+      <h2 className="title-2" id="forecast-label">
+        Full Day Forecast
+      </h2>
+
+      
           <div className="card card-lg forecast-card">
             <ul>
               {/* 2nd Day / Tomorrow */}
@@ -379,6 +381,7 @@ const Forecast = ({ selectData, forecastData }) => {
               </li>
             </ul>
           </div>
+          </>
         )}
     </section>
   );

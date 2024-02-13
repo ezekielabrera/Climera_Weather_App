@@ -21,6 +21,8 @@
   --bg-aqi-5: #e589b7;
   --on-bg-aqi-5: #331f29;
   --white: #fff;
+  --black: #152139;
+  --color-highlight: #0fbde4;
   --white-alpha-4: hsla(0, 0%, 100%, 0.04);
   --white-alpha-8: hsla(0, 0%, 100%, 0.08);
   --black-alpha-10: hsla(0, 0%, 0%, 0.1);
@@ -289,10 +291,10 @@ article.container::before {
 .btn-primary {
   /* background-color: var(--primary); */
   background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border-radius: 10px;
+  -webkit-backdrop-filter: blur(2px); */
+  /* border-radius: 10px; */
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: var(--on-primary);
   height: 48px;
@@ -508,17 +510,19 @@ main {
 
   .search-wrapper > .m-icon {
     display: block;
+    color: var(--white);
   }
 
   .search-field,
   .search-view .view-list {
     /* background-color: var(--surface); */
     background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px); */
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--black);
   }
 
   .search-field {
@@ -561,11 +565,11 @@ main {
   }
 
   .search-view:is(:hover, :has(.view-list):hover) {
-    filter: drop-shadow(var(--shadow-1));
+    /* filter: drop-shadow(var(--shadow-1)); */
   }
 
   .search-view:is(:focus-within, :has(.view-list):focus-within) {
-    filter: drop-shadow(var(--shadow-2));
+    /* filter: drop-shadow(var(--shadow-2)); */
   }
 
   /* Main */
@@ -609,4 +613,34 @@ main {
   .highlight-list {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* Loading Style */
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: grid;
+  /* display: none; */
+  transition: 300ms ease-in-out;
+  place-items: center;
+  z-index: 1;
+}
+
+.loading::before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--on-background);
+  border-block-start-color: transparent;
+  border-radius: var(--radius-circle);
+  animation: loading 500ms linear infinite;
 }

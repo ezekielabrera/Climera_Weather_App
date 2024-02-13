@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./header.css";
-
-import { fetchData, url, fetchWeatherDetails } from "../../utils/api"; // Adjust the path accordingly
-import logo from "../../assets/logo.png";
+import { fetchData, url, fetchWeatherDetails, fetchLocationName } from "../../utils/api";
+import logo from "../../assets/climera-logo3.png";
 
 const Header = ({ onCitySelect }) => {
-
-  // For Mobile View Search interface
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchField, setSearchField] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [searching, setSearching] = useState(false);
+  const [noResults, setNoResults] = useState(false);
+
+  let searchTimeout = null;
+  const searchTimeoutDuration = 500;
 
   const openSearch = () => {
     setIsSearchActive((prev) => !prev);
@@ -17,18 +21,38 @@ const Header = ({ onCitySelect }) => {
     setIsSearchActive(false);
   };
 
-  // For search result
-  const [searchField, setSearchField] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
-  const [searching, setSearching] = useState(false);
-
-  let searchTimeout = null;
-  const searchTimeoutDuration = 500;
-
   const handleChange = (e) => {
     setSearchField(e.target.value);
   };
+  
+  // To get user location by clicking the button
+const handleGetLocation = () => {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        
+        // Fetch location name using reverse geocoding
+        fetchLocationName(latitude, longitude, (locationName) => {
+          fetchWeatherDetails(latitude, longitude, ({ weatherDetails, forecastData, airPollutionData }) => {
+            // Pass weather details, forecast data, air pollution data, and location name to parent component
+            onCitySelect({ name: locationName, lat: latitude, lon: longitude }, weatherDetails, forecastData, airPollutionData);
+          });
+        });
+      },
+      (error) => {
+        console.error("Error getting geolocation:", error);
+        // Handle error, such as displaying a message to the user
+      }
+    );
+  } else {
+    console.error("Geolocation not supported");
+    // Handle case where geolocation is not supported
+  }
+};
 
+
+  // for search-field result
   useEffect(() => {
     searchTimeout && clearTimeout(searchTimeout);
 
@@ -40,26 +64,17 @@ const Header = ({ onCitySelect }) => {
         fetchData(url.geo(searchField), function (locations) {
           setSearching(false);
           setSearchResult(locations);
+          setNoResults(locations.length === 0);
         });
       }, searchTimeoutDuration);
     }
   }, [searchField]);
 
-  // For selecting the searched city
   const handleCitySelect = (selectedCity) => {
-    console.log("User selected city:", selectedCity);
-
-    // Call fetchWeatherDetails when a city is selected
     fetchWeatherDetails(
       selectedCity.lat,
       selectedCity.lon,
       ({ weatherDetails, forecastData, airPollutionData }) => {
-        // Do something with weatherDetails and forecastData
-        console.log("Weather Details in Header:", weatherDetails);
-        console.log("Forecast Data in Header:", forecastData);
-        console.log("Air Pollution in Header:", airPollutionData);
-
-        // Pass selectedCity, weatherDetails, and forecastData to the onCitySelect callback
         onCitySelect(
           selectedCity,
           weatherDetails,
@@ -91,9 +106,7 @@ const Header = ({ onCitySelect }) => {
               data-search-field
               onChange={handleChange}
             />
-
             <span className="m-icon leading-icon">search</span>
-
             <button
               className="icon-btn leading-icon has-state"
               aria-label="close search"
@@ -110,28 +123,36 @@ const Header = ({ onCitySelect }) => {
             }`}
             data-search-result
           >
-            <ul className="view-list" data-search-list>
-              {searchResult.map(({ name, lat, lon, country, state }) => (
-                <li key={`${lat}-${lon}`} className="view-item">
-                  <span className="m-icon">Location_on</span>
-                  <div>
-                    <p className="item-title">{name}</p>
-                    <p className="label-2 item-subtitle">
-                      {state || ""} {country}
-                    </p>
-                  </div>
-                  <a
-                    href={`#/weather?lat=${lat}&lon=${lon}`}
-                    className="item-link has-state"
-                    aria-label={`${name} weather`}
-                    data-search-toggler
-                    onClick={() =>
-                      handleCitySelect({ name, lat, lon, country, state })
-                    }
-                  ></a>
+            {noResults ? (
+              <ul className="view-list" data-search-list>
+                <li className="view-item">
+                  <p style={{ margin: "0 auto" }}>No results found</p>
                 </li>
-              ))}
-            </ul>
+              </ul>
+            ) : (
+              <ul className="view-list" data-search-list>
+                {searchResult.map(({ name, lat, lon, country, state }) => (
+                  <li key={`${lat}-${lon}`} className="view-item">
+                    <span className="m-icon">Location_on</span>
+                    <div>
+                      <p className="item-title">{name}</p>
+                      <p className="label-2 item-subtitle">
+                        {state || ""} {country}
+                      </p>
+                    </div>
+                    <a
+                      href={`#/weather?lat=${lat}&lon=${lon}`}
+                      className="item-link has-state"
+                      aria-label={`${name} weather`}
+                      data-search-toggler
+                      onClick={() =>
+                        handleCitySelect({ name, lat, lon, country, state })
+                      }
+                    ></a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
 
@@ -148,10 +169,10 @@ const Header = ({ onCitySelect }) => {
           <a
             href="#/current-location"
             className="btn-primary has-state"
-            data-current-location-btn
+            onClick={handleGetLocation}
           >
             <span className="m-icon">my_location</span>
-            <span className="span">Current Location</span>
+            <span className="span">Your Location</span>
           </a>
         </div>
       </div>

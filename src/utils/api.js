@@ -105,3 +105,26 @@ export const fetchWeatherDetails = function (lat, lon, callback) {
       throw error;
     });
 };
+
+// To get your current location
+export const fetchLocationName = (latitude, longitude, callback) => {
+  const apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${api_key}`;
+  
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Extract the location name from the response
+      const locationName = data[0]?.name || 'Unknown Location';
+      callback(locationName);
+    })
+    .catch(error => {
+      console.error('Error fetching location name:', error);
+    });
+};
+
+

@@ -150,9 +150,10 @@ const CurrentWeather = ({ selectedCity, weatherDetails }) => {
         aria-label="current current"
         data-current-weather
       >
-        <div className="card card-lg current-weather-card">
-          {selectedCity && weatherDetails && weatherDetails.dt && (
+        {selectedCity && weatherDetails && weatherDetails.dt && (
             <>
+        <div className="card card-lg current-weather-card">
+          
               <div className="current-location-title">
                 <span class="m-icon" style={{margin: "0 5px"}}>location_on</span>{" "}
                 <h2 className="title-2 card-title">{selectedCity.name}</h2>
@@ -163,7 +164,7 @@ const CurrentWeather = ({ selectedCity, weatherDetails }) => {
                     weatherDetails &&
                     weatherDetails.weather &&
                     weatherDetails.weather[0] &&
-                    `../src/assets/weather_icons/Sun.png`
+                    `../src/assets/weather_icons/${weatherDetails.weather[0].icon}.png`
                   }
                   alt={
                     weatherDetails &&
@@ -213,9 +214,10 @@ const CurrentWeather = ({ selectedCity, weatherDetails }) => {
                   </p>
                 </li>
               </ul>
-            </>
-          )}
+            
         </div>
+        </>
+        )}
       </section>
     </>
   );

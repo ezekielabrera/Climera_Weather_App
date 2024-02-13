@@ -1,0 +1,27 @@
+.hero-container {
+  width: 90%;
+  color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 62px;
+  gap: 14px;
+}
+
+.hero-container .title-highlight {
+    color: var(--color-highlight)
+}
+
+.hero-container .hero-description {
+    text-align: center;
+    margin: 10px 0 14px;
+    font-size: var(--body-3);
+    color: var(--white);
+}

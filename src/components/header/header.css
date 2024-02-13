@@ -4,6 +4,8 @@
 
 .logo img {
   width: 150px;
+  margin: 0;
+  padding: 0;
 }
 
 .header .container,
@@ -125,12 +127,34 @@
   padding-inline: 16px 24px;
 }
 
-.search-view .view-item :is(.m-icon, .item-subtitle) {
+.search-view .view-item :is(.item-subtitle) {
   color: var(--on-surface-variant);
+}
+
+.search-view .view-item :is(.m-icon) {
+  color: var(--color-highlight);
 }
 
 .search-view .view-item .item-link {
   position: absolute;
   inset: 0;
   box-shadow: none;
+}
+
+.search-view.active {
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  /* border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18); */
+}
+
+.search-result.active .view-list {
+  background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 8px );
+-webkit-backdrop-filter: blur( 8px );
+/* border-radius: 10px; */
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
