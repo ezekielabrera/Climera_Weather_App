@@ -124,13 +124,14 @@ sub {
 }
 
 sup {
-  vertical-align: center;
+  vertical-align:middle;
+  font-size: 4.75rem;
 }
 
-sub,
+/* sub,
 sup {
-  font-size: 1.75rem;
-}
+  
+} */
 
 html {
   font-family: var(--ff-nunito-sans);
@@ -228,6 +229,7 @@ article.container::before {
   height: 1em;
   width: 1em;
   overflow: hidden;
+  color: var(--color-highlight);
 }
 
 /* Reused Style */
@@ -443,6 +445,12 @@ main {
   .hourly-forecast .card-sm {
     padding: 16px;
   }
+
+  .search-result.active .view-list {
+    color: var(--black);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
 }
 
 /* for larger than 1200px screen */
@@ -564,13 +572,13 @@ main {
     height: 20px;
   }
 
-  .search-view:is(:hover, :has(.view-list):hover) {
-    /* filter: drop-shadow(var(--shadow-1)); */
+  /* .search-view:is(:hover, :has(.view-list):hover) {
+    filter: drop-shadow(var(--shadow-1));
   }
 
   .search-view:is(:focus-within, :has(.view-list):focus-within) {
-    /* filter: drop-shadow(var(--shadow-2)); */
-  }
+    filter: drop-shadow(var(--shadow-2));
+  } */
 
   /* Main */
   main {
@@ -639,7 +647,7 @@ main {
   content: "";
   width: 48px;
   height: 48px;
-  border: 4px solid var(--on-background);
+  border: 4px solid var(--color-highlight);
   border-block-start-color: transparent;
   border-radius: var(--radius-circle);
   animation: loading 500ms linear infinite;

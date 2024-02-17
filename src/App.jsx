@@ -9,10 +9,6 @@ import Hourly from "./components/weather/WeekForecast";
 import LandingPage from './components/landingPage/landing';
 import HourlyForecast from "./components/weather/HourlyForecast";
 import WeekForecast from "./components/weather/WeekForecast";
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
-AOS.init();
 
 const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);

@@ -1,129 +1,142 @@
 /* hourly forecast */
 .highlights .m-icon {
-    font-size: 3.2rem;
+  font-size: 3.2rem;
 }
 
 .highlight-list {
-    display: grid;
-    gap: 20px;
+  display: grid;
+  gap: 20px;
 }
 
 .highlight-list .title-3 {
-    color: var(--white);
-    margin-block-end: 20px;
+  color: var(--white);
+  margin-block-end: 20px;
 }
 
 .highlights .card-sm {
-    background-color: var(--black-alpha-10);
-    position: relative;
+  background-color: var(--black-alpha-10);
+  position: relative;
 }
 
 .highlight-card :is(.wrapper, .card-list, .card-item) {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .highlight-card .wrapper {
-    justify-content: space-between;
-    gap: 16px;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .highlight-card .card-list {
-    flex-wrap: wrap;
-    flex-grow: 1;
-    row-gap: 8px;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  row-gap: 8px;
 }
 
 .highlight-card .card-item {
-    width: 50%;
-    justify-content: flex-end;
-    gap: 4px;
+  width: 50%;
+  justify-content: flex-end;
+  gap: 4px;
 }
 
 .highlight-card .label-1 {
-    color: var(--white);
+  color: var(--white);
 }
 
-
 .badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    padding: 2px 12px;
-    border-radius: var(--radius-pill);
-    font-weight: var(--weight-semiBold);
-    cursor: help;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 2px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-semiBold);
+  cursor: help;
 }
 
 .badge.aqi-1 {
-    background-color: var(--bg-aqi-1);
-    color: var(--on-bg-aqi-1);
+  background-color: var(--bg-aqi-1);
+  color: var(--on-bg-aqi-1);
 }
 
 .badge.aqi-2 {
-    background-color: var(--bg-aqi-2);
-    color: var(--on-bg-aqi-2);
+  background-color: var(--bg-aqi-2);
+  color: var(--on-bg-aqi-2);
 }
 
 .badge.aqi-3 {
-    background-color: var(--bg-aqi-3);
-    color: var(--on-bg-aqi-3);
+  background-color: var(--bg-aqi-3);
+  color: var(--on-bg-aqi-3);
 }
 
 .badge.aqi-4 {
-    background-color: var(--bg-aqi-4);
-    color: var(--on-bg-aqi-4);
+  background-color: var(--bg-aqi-4);
+  color: var(--on-bg-aqi-4);
 }
 
 .badge.aqi-5 {
-    background-color: var(--bg-aqi-5);
-    color: var(--on-bg-aqi-5);
+  background-color: var(--bg-aqi-5);
+  color: var(--on-bg-aqi-5);
 }
 
 .highlight-card .two .card-item {
-   justify-content: flex-start;
-   flex-wrap: wrap;
-   gap: 8px 16px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 16px;
 }
 
 .highlight-card .two .label-1 {
-   margin-block-end: 4px;
+  margin-block-end: 4px;
 }
 
 .slider-container {
-    overflow-x: auto;
-    margin-inline: -16px;
+  overflow-x: auto;
+  margin-inline: -16px;
 }
 
 .slider-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .slider-list {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 }
 
 .slider-list:first-child {
-    margin-block-end: 16px;
+  margin-block-end: 16px;
 }
 
-.slider-list::before, .slider-list::before {
-    content: "";
-    min-width: 4px;
+.slider-list::before,
+.slider-list::before {
+  content: "";
+  min-width: 4px;
 }
 
 .slider-item {
-    min-width: 110px;
-    flex: 1 1 100%;
+  min-width: 110px;
+  flex: 1 1 100%;
 }
 
 .slider-card {
-    text-align: center;
+  text-align: center;
 }
 
 .slider-item .weather-icon {
-    margin-inline: auto;
-    margin-block: 12px;
+  margin-inline: auto;
+  margin-block: 12px;
 }
 
+/* Animation */
+.highlight-hidden-animation {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(20px); /* Adjust this value as needed */
+  transition: all 1400ms;
+}
+
+.highlight-show-animation {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}

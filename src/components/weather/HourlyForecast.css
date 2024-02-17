@@ -30,3 +30,16 @@
   text-align: right;
 }
 
+/* Animation */
+.hourly-hidden-animation {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(20px); /* Adjust this value as needed */
+  transition: all 1800ms;
+}
+
+.hourly-show-animation {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}

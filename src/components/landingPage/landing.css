@@ -13,6 +13,7 @@
   align-items: center;
   font-size: 62px;
   gap: 14px;
+  font-weight: bolder;
 }
 
 .hero-container .title-highlight {
@@ -24,4 +25,32 @@
   margin: 10px 0 14px;
   font-size: var(--body-3);
   color: var(--on-surface);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 22px;
+    /* text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.6); */
+  }
+  .hero-container .hero-description {
+    text-align: left;
+  }
+  body {
+    background-image: linear-gradient(rgba(205, 210, 217, 0.7), rgba(0, 4, 10, 0.7)),
+      url(../../assets/weather_background/bg-photo.jpg);
+  }
+}
+
+/* For Animation */
+.hidden-animation {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(20px); /* Adjust this value as needed */
+  transition: all 1s;
+}
+
+.show-animation {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }

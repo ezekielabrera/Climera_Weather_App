@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./WeekForecast.css";
 
 import icon2 from "../../assets/weather_icons/01n.png";
 import icon3 from "../../assets/weather_icons/direction.png";
 
 const WeekForecast = ({ selectData, forecastData }) => {
+
+  const observerRef = useRef(null); // Use a ref to store the observer instance
+
+  useEffect(() => {
+    // Create the IntersectionObserver only once
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("weekforecast-show-animation");
+          } else {
+            entry.target.classList.remove("weekforecast-show-animation");
+          }
+        });
+      });
+    }
+
+    const hiddenElements = document.querySelectorAll(
+      ".weekforecast-hidden-animation"
+    );
+    hiddenElements.forEach((el) => observerRef.current.observe(el));
+
+    // Clean up the observer when the component is unmounted
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [forecastData]); // Update the effect when selectedCity or weatherDetails change
+
   return (
     <div>
       {/* Hourly Forecast */}
@@ -23,7 +53,7 @@ const WeekForecast = ({ selectData, forecastData }) => {
             <>
               <h2 className="title-2">1 Week Forecast</h2>
 
-              <div className="slider-container">
+              <div className="slider-container weekforecast-hidden-animation">
                 <ul className="slider-list" data-temp>
                   <li className="slider-item">
                     <div className="card card-sm slider-card">

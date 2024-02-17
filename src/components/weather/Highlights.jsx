@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Highlights.css";
 
 import { getAqiText } from "../../utils/module";
@@ -9,6 +9,34 @@ const Highlights = ({
   forecastData,
   airPollutionData,
 }) => {
+
+  const observerRef = useRef(null); // Use a ref to store the observer instance
+
+  useEffect(() => {
+    // Create the IntersectionObserver only once
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("highlight-show-animation");
+          } else {
+            entry.target.classList.remove("highlight-show-animation");
+          }
+        });
+      });
+    }
+
+    const hiddenElements = document.querySelectorAll(".highlight-hidden-animation");
+    hiddenElements.forEach((el) => observerRef.current.observe(el));
+
+    // Clean up the observer when the component is unmounted
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [selectedCity, weatherDetails]); // Update the effect when selectedCity or weatherDetails change
+
   return (
     <div>
       {/* Highlights */}
@@ -18,7 +46,7 @@ const Highlights = ({
         data-highlights
       >
         {selectedCity && airPollutionData && airPollutionData.list && (
-          <div className="card card-lg">
+          <div className="card card-lg highlight-hidden-animation">
             <h2 className="title-2" id="highlights-label">
               Todays Highlights
             </h2>
