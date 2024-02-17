@@ -16,12 +16,12 @@
 }
 
 .hero-container .title-highlight {
-    color: var(--color-highlight)
+  color: var(--color-highlight);
 }
 
 .hero-container .hero-description {
-    text-align: center;
-    margin: 10px 0 14px;
-    font-size: var(--body-3);
-    color: var(--white);
+  text-align: center;
+  margin: 10px 0 14px;
+  font-size: var(--body-3);
+  color: var(--on-surface);
 }

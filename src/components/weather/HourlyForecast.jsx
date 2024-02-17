@@ -1,7 +1,7 @@
 import React from "react";
-import "./Forecast.css";
+import "./HourlyForecast.css";
 
-const Forecast = ({ selectData, forecastData }) => {
+const HourlyForecast = ({ selectData, forecastData }) => {
   return (
     <section
       className="section forecast"
@@ -14,7 +14,7 @@ const Forecast = ({ selectData, forecastData }) => {
         forecastData.list[0].dt && (
           <>
       <h2 className="title-2" id="forecast-label">
-        Full Day Forecast
+        Hourly Forecast
       </h2>
 
       
@@ -30,7 +30,7 @@ const Forecast = ({ selectData, forecastData }) => {
                       forecastData.list[1] &&
                       forecastData.list[1].weather &&
                       forecastData.list[1].weather[0] &&
-                      `../src/assets/weather_icons/${forecastData.list[1].weather[0].icon}.png`
+                      `../src/assets/figma_weather_icons/${forecastData.list[1].weather[0].icon}.png`
                     }
                     alt={
                       forecastData &&
@@ -102,7 +102,7 @@ const Forecast = ({ selectData, forecastData }) => {
                       forecastData.list[2] &&
                       forecastData.list[2].weather &&
                       forecastData.list[2].weather[0] &&
-                      `../src/assets/weather_icons/${forecastData.list[2].weather[0].icon}.png`
+                      `../src/assets/figma_weather_icons/${forecastData.list[2].weather[0].icon}.png`
                     }
                     alt={
                       forecastData &&
@@ -174,7 +174,7 @@ const Forecast = ({ selectData, forecastData }) => {
                       forecastData.list[3] &&
                       forecastData.list[3].weather &&
                       forecastData.list[3].weather[0] &&
-                      `../src/assets/weather_icons/${forecastData.list[3].weather[0].icon}.png`
+                      `../src/assets/figma_weather_icons/${forecastData.list[3].weather[0].icon}.png`
                     }
                     alt={
                       forecastData &&
@@ -246,7 +246,7 @@ const Forecast = ({ selectData, forecastData }) => {
                       forecastData.list[4] &&
                       forecastData.list[4].weather &&
                       forecastData.list[4].weather[0] &&
-                      `../src/assets/weather_icons/${forecastData.list[4].weather[0].icon}.png`
+                      `../src/assets/figma_weather_icons/${forecastData.list[4].weather[0].icon}.png`
                     }
                     alt={
                       forecastData &&
@@ -318,7 +318,7 @@ const Forecast = ({ selectData, forecastData }) => {
                       forecastData.list[6] &&
                       forecastData.list[6].weather &&
                       forecastData.list[6].weather[0] &&
-                      `../src/assets/weather_icons/${forecastData.list[6].weather[0].icon}.png`
+                      `../src/assets/figma_weather_icons/${forecastData.list[6].weather[0].icon}.png`
                     }
                     alt={
                       forecastData &&
@@ -387,4 +387,4 @@ const Forecast = ({ selectData, forecastData }) => {
   );
 };
 
-export default Forecast;
+export default HourlyForecast;

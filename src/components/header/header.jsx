@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./header.css";
-import { fetchData, url, fetchWeatherDetails, fetchLocationName } from "../../utils/api";
+import {
+  fetchData,
+  url,
+  fetchWeatherDetails,
+  fetchLocationName,
+} from "../../utils/api";
 import logo from "../../assets/climera-logo3.png";
 
 const Header = ({ onCitySelect }) => {
@@ -24,33 +29,41 @@ const Header = ({ onCitySelect }) => {
   const handleChange = (e) => {
     setSearchField(e.target.value);
   };
-  
-  // To get user location by clicking the button
-const handleGetLocation = () => {
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        
-        // Fetch location name using reverse geocoding
-        fetchLocationName(latitude, longitude, (locationName) => {
-          fetchWeatherDetails(latitude, longitude, ({ weatherDetails, forecastData, airPollutionData }) => {
-            // Pass weather details, forecast data, air pollution data, and location name to parent component
-            onCitySelect({ name: locationName, lat: latitude, lon: longitude }, weatherDetails, forecastData, airPollutionData);
-          });
-        });
-      },
-      (error) => {
-        console.error("Error getting geolocation:", error);
-        // Handle error, such as displaying a message to the user
-      }
-    );
-  } else {
-    console.error("Geolocation not supported");
-    // Handle case where geolocation is not supported
-  }
-};
 
+  // To get user location by clicking the button
+  const handleGetLocation = () => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+
+          // Fetch location name using reverse geocoding
+          fetchLocationName(latitude, longitude, (locationName) => {
+            fetchWeatherDetails(
+              latitude,
+              longitude,
+              ({ weatherDetails, forecastData, airPollutionData }) => {
+                // Pass weather details, forecast data, air pollution data, and location name to parent component
+                onCitySelect(
+                  { name: locationName, lat: latitude, lon: longitude },
+                  weatherDetails,
+                  forecastData,
+                  airPollutionData
+                );
+              }
+            );
+          });
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+          // Handle error, such as displaying a message to the user
+        }
+      );
+    } else {
+      console.error("Geolocation not supported");
+      // Handle case where geolocation is not supported
+    }
+  };
 
   // for search-field result
   useEffect(() => {
@@ -106,7 +119,7 @@ const handleGetLocation = () => {
               data-search-field
               onChange={handleChange}
             />
-            <span className="m-icon leading-icon">search</span>
+            <span className="m-icon leading-icon search-city-icon">location_on</span>
             <button
               className="icon-btn leading-icon has-state"
               aria-label="close search"
@@ -171,7 +184,7 @@ const handleGetLocation = () => {
             className="btn-primary has-state"
             onClick={handleGetLocation}
           >
-            <span className="m-icon">my_location</span>
+            <span className="m-icon">home_pin</span>
             <span className="span">Your Location</span>
           </a>
         </div>

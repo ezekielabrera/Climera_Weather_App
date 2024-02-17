@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./CurrentWeather.css";
 import icon1 from "../../assets/weather_icons/01d.png";
 import icon2 from "../../assets/weather_icons/01n.png";
-import icon3 from "../../assets/weather_icons/direction.png";
+import icon3 from "../../assets/figma_weather_icons/50d.png";
 // import Footer from "../footer/Footer";
 // import Loading from "../loading/Loading";
 // import { fetchData, url } from "../../api";
@@ -151,20 +151,21 @@ const CurrentWeather = ({ selectedCity, weatherDetails }) => {
         data-current-weather
       >
         {selectedCity && weatherDetails && weatherDetails.dt && (
-            <>
-        <div className="card card-lg current-weather-card">
-          
+          <>
+            <div className="card card-lg current-weather-card">
               <div className="current-location-title">
-                <span class="m-icon" style={{margin: "0 5px"}}>location_on</span>{" "}
+                <span class="m-icon" style={{ margin: "0 5px" }}>
+                  location_on
+                </span>{" "}
                 <h2 className="title-2 card-title">{selectedCity.name}</h2>
               </div>
               <div className="weapper">
-              <img
+                <img
                   src={
                     weatherDetails &&
                     weatherDetails.weather &&
                     weatherDetails.weather[0] &&
-                    `../src/assets/weather_icons/${weatherDetails.weather[0].icon}.png`
+                    `../src/assets/figma_weather_icons/${weatherDetails.weather[0].icon}.png`
                   }
                   alt={
                     weatherDetails &&
@@ -180,8 +181,6 @@ const CurrentWeather = ({ selectedCity, weatherDetails }) => {
                   {weatherDetails && Math.round(weatherDetails.main.temp)}
                   &deg;<sup>C</sup>
                 </p>
-
-                
               </div>
               <p className="body-3">
                 {weatherDetails &&
@@ -214,9 +213,8 @@ const CurrentWeather = ({ selectedCity, weatherDetails }) => {
                   </p>
                 </li>
               </ul>
-            
-        </div>
-        </>
+            </div>
+          </>
         )}
       </section>
     </>

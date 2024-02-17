@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import Header from "./components/header/header";
 import CurrentWeather from "./components/weather/CurrentWeather";
-import Forecast from "./components/weather/Forecast";
+import Forecast from "./components/weather/HourlyForecast";
 import { fetchWeatherDetails } from './utils/api';
 import "./App.css";
 import Highlights from "./components/weather/Highlights";
-import Hourly from "./components/weather/Hourly";
+import Hourly from "./components/weather/WeekForecast";
 import LandingPage from './components/landingPage/landing';
+import HourlyForecast from "./components/weather/HourlyForecast";
+import WeekForecast from "./components/weather/WeekForecast";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);
@@ -50,7 +56,7 @@ const App = () => {
               selectedCity={selectedCity}
               weatherDetails={weatherDetails}
             />
-            <Forecast selectedCity={selectedCity} forecastData={forecastData} />
+            <HourlyForecast selectedCity={selectedCity} forecastData={forecastData} />
           </div>
           <div className="content-right">
             <Highlights
@@ -59,7 +65,7 @@ const App = () => {
               forecastData={forecastData}
               airPollutionData={airPollution}
             />
-            <Hourly selectedCity={selectedCity} forecastData={forecastData} />
+            <WeekForecast selectedCity={selectedCity} forecastData={forecastData} />
           </div>
         </article>
       </main>

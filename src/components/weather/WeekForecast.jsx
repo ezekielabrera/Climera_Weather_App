@@ -1,10 +1,10 @@
 import React from "react";
-import "./Hourly.css";
+import "./WeekForecast.css";
 
 import icon2 from "../../assets/weather_icons/01n.png";
 import icon3 from "../../assets/weather_icons/direction.png";
 
-const Hourly = ({ selectData, forecastData }) => {
+const WeekForecast = ({ selectData, forecastData }) => {
   return (
     <div>
       {/* Hourly Forecast */}
@@ -58,7 +58,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[10] &&
                           forecastData.list[10].weather &&
                           forecastData.list[10].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[10].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[10].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -127,7 +127,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[12] &&
                           forecastData.list[12].weather &&
                           forecastData.list[12].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[12].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[12].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -196,7 +196,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[14] &&
                           forecastData.list[14].weather &&
                           forecastData.list[14].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[14].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[14].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -265,7 +265,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[15] &&
                           forecastData.list[15].weather &&
                           forecastData.list[15].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[15].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[15].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -334,7 +334,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[16] &&
                           forecastData.list[16].weather &&
                           forecastData.list[16].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[16].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[16].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -404,7 +404,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[18] &&
                           forecastData.list[18].weather &&
                           forecastData.list[18].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[18].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[18].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -494,7 +494,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[20] &&
                           forecastData.list[20].weather &&
                           forecastData.list[20].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[20].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[20].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -563,7 +563,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[22] &&
                           forecastData.list[22].weather &&
                           forecastData.list[22].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[22].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[22].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -632,7 +632,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[24] &&
                           forecastData.list[24].weather &&
                           forecastData.list[24].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[24].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[24].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -701,7 +701,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[26] &&
                           forecastData.list[26].weather &&
                           forecastData.list[26].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[26].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[26].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -770,7 +770,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[28] &&
                           forecastData.list[28].weather &&
                           forecastData.list[28].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[28].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[28].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -839,7 +839,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[30] &&
                           forecastData.list[30].weather &&
                           forecastData.list[30].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[30].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[30].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -911,7 +911,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[31] &&
                           forecastData.list[31].weather &&
                           forecastData.list[31].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[31].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[31].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -980,7 +980,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[33] &&
                           forecastData.list[33].weather &&
                           forecastData.list[33].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[33].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[33].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -1049,7 +1049,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[34] &&
                           forecastData.list[34].weather &&
                           forecastData.list[34].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[34].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[34].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -1118,7 +1118,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[35] &&
                           forecastData.list[35].weather &&
                           forecastData.list[35].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[35].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[35].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -1187,7 +1187,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[37] &&
                           forecastData.list[37].weather &&
                           forecastData.list[37].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[37].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[37].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -1256,7 +1256,7 @@ const Hourly = ({ selectData, forecastData }) => {
                           forecastData.list[39] &&
                           forecastData.list[39].weather &&
                           forecastData.list[39].weather[0] &&
-                          `../src/assets/weather_icons/${forecastData.list[39].weather[0].icon}.png`
+                          `../src/assets/figma_weather_icons/${forecastData.list[39].weather[0].icon}.png`
                         }
                         alt={
                           forecastData &&
@@ -1299,4 +1299,4 @@ const Hourly = ({ selectData, forecastData }) => {
   );
 };
 
-export default Hourly;
+export default WeekForecast;

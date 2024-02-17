@@ -296,7 +296,7 @@ article.container::before {
   -webkit-backdrop-filter: blur(2px); */
   /* border-radius: 10px; */
   border: 1px solid rgba(255, 255, 255, 0.18);
-  color: var(--on-primary);
+  color: var(--black);
   height: 48px;
   line-height: 48px;
   max-width: max-content;
@@ -510,7 +510,7 @@ main {
 
   .search-wrapper > .m-icon {
     display: block;
-    color: var(--white);
+    /* color: var(--white); */
   }
 
   .search-field,
