@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import Header from "./components/header/header";
 import CurrentWeather from "./components/weather/CurrentWeather";
 import Forecast from "./components/weather/HourlyForecast";
-import { fetchWeatherDetails } from './utils/api';
+import { fetchWeatherDetails } from "./utils/api";
 import "./App.css";
 import Highlights from "./components/weather/Highlights";
 import Hourly from "./components/weather/WeekForecast";
-import LandingPage from './components/landingPage/landing';
+import LandingPage from "./components/landingPage/landing";
 import HourlyForecast from "./components/weather/HourlyForecast";
 import WeekForecast from "./components/weather/WeekForecast";
+import FooterSection from "./components/footer/FooterSection";
+
+
 
 const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);
@@ -27,32 +30,45 @@ const App = () => {
     setAirPollution(airPollution);
     setShowLandingPage(false); // Hide landing page when a city is selected
 
-    fetchWeatherDetails(city.lat, city.lon, ({ weatherDetails, forecastData, airPollutionData }) => {
-      // Update state with weather details, forecast data, and air pollution data
-      setWeatherDetails(weatherDetails);
-      setForecastData(forecastData);
-      setAirPollution(airPollutionData);
-      setLoading(false); // Set loading state to false when data is fetched
-    });
+    fetchWeatherDetails(
+      city.lat,
+      city.lon,
+      ({ weatherDetails, forecastData, airPollutionData }) => {
+        // Update state with weather details, forecast data, and air pollution data
+        setWeatherDetails(weatherDetails);
+        setForecastData(forecastData);
+        setAirPollution(airPollutionData);
+        setLoading(false); // Set loading state to false when data is fetched
+      }
+    );
   };
-  
+
   return (
     <>
       <Header onCitySelect={handleCitySelect} />
       <main>
-        <div className={`${loading ? 'loading' : ''}  `} ></div>
+        <div className={`${loading ? "loading" : ""}  `}></div>
         {showLandingPage && ( // Render landing page only if showLandingPage is true
           <div className="landing-page">
             <LandingPage />
           </div>
         )}
-        <article className={`container ${showLandingPage ? 'hidden' : ''}`} data-container> {/* Add 'hidden' class to hide container when showLandingPage is true */}
+        <article
+          className={`container ${showLandingPage ? "hidden" : ""}`}
+          data-container
+        >
+          {" "}
+          {/* Add 'hidden' class to hide container when showLandingPage is true */}
           <div className="content-left">
             <CurrentWeather
               selectedCity={selectedCity}
               weatherDetails={weatherDetails}
+              forecastData={forecastData}
             />
-            <HourlyForecast selectedCity={selectedCity} forecastData={forecastData} />
+            <HourlyForecast
+              selectedCity={selectedCity}
+              forecastData={forecastData}
+            />
           </div>
           <div className="content-right">
             <Highlights
@@ -61,8 +77,11 @@ const App = () => {
               forecastData={forecastData}
               airPollutionData={airPollution}
             />
-            <WeekForecast selectedCity={selectedCity} forecastData={forecastData} />
-          </div>
+            <WeekForecast
+              selectedCity={selectedCity}
+              forecastData={forecastData}
+            />
+          </div>  
         </article>
       </main>
     </>

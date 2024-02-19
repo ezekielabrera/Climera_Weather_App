@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./landing.css";
+import FooterSection from "../footer/FooterSection";
 
 const landing = () => {
   useEffect(() => {
@@ -33,6 +34,7 @@ const landing = () => {
         Simply type any location on the search bar or hit the button above to
         get instant updates!
       </p>
+      <FooterSection />
     </div>
   );
 };

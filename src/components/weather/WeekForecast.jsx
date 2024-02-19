@@ -3,6 +3,7 @@ import "./WeekForecast.css";
 
 import icon2 from "../../assets/weather_icons/01n.png";
 import icon3 from "../../assets/weather_icons/direction.png";
+import FooterSection from "../footer/FooterSection";
 
 const WeekForecast = ({ selectData, forecastData }) => {
 
@@ -1321,6 +1322,7 @@ const WeekForecast = ({ selectData, forecastData }) => {
                     </div>
                   </li>
                 </ul>
+                <FooterSection />
               </div>
             </>
           )}

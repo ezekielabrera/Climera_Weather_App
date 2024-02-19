@@ -36,7 +36,10 @@
     text-align: left;
   }
   body {
-    background-image: linear-gradient(rgba(205, 210, 217, 0.7), rgba(0, 4, 10, 0.7)),
+    background-image: linear-gradient(
+        rgba(205, 210, 217, 0.7),
+        rgba(0, 4, 10, 0.7)
+      ),
       url(../../assets/weather_background/bg-photo.jpg);
   }
 }
@@ -45,8 +48,8 @@
 .hidden-animation {
   opacity: 0;
   filter: blur(5px);
-  transform: translateY(20px); /* Adjust this value as needed */
-  transition: all 1s;
+  transform: translateY(80px); /* Adjust this value as needed */
+  transition: all 1200ms;
 }
 
 .show-animation {

@@ -1,6 +1,24 @@
 .current-location-title {
   color: #fff;
   display: flex;
+  justify-content: space-between;
+}
+
+.current-location-time {
+  /* margin-left: 5rem;
+  line-height: 2rem; */
+  font-size: 1.6rem;
+  display: inline;
+  line-height: 1.8em;
+}
+
+.current-location-date {
+  font-size: 1.6rem;
+  display: inline;
+}
+
+.current-location-box {
+  display: inline-flex;
 }
 
 .card {
@@ -27,7 +45,7 @@
 .heading {
   color: #fff;
   font-size: 8rem;
-  line-height:normal;
+  line-height: normal;
   text-align: center;
 }
 
@@ -57,7 +75,7 @@
 .heading-desc {
   font-size: var(--body-3);
   text-align: left;
-  color: #fff;
+  color: var(--white);
 }
 
 .label-1 {
@@ -80,7 +98,7 @@
 } */
 
 .current-weather-card .weapper {
-  margin-block: 12px;
+  /* margin-block: 12px; */
   display: flex;
   gap: 8px;
   align-items: center;
@@ -113,4 +131,23 @@
 
 .current-weather-card .meta-text {
   color: var(--on-surface-variant);
+}
+
+.heading .heading-desc {
+  text-transform: capitalize;
+  margin-left: 5px;
+}
+
+.meta-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meta-value .m-icon {
+  margin: 0 auto;
+}
+
+.wind-direction {
+  transform: rotate(15deg);
 }
