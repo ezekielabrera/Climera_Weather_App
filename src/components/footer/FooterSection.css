@@ -1,22 +1,22 @@
-.footer, .footer .body-3:last-child {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items:baseline;
+.footer,
+.footer .body-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary);
 }
 
 .footer {
-    color: var(--on-surface-variant);
-    text-align:center;
-    gap: 12px 24px;
-    margin-block-start: 28px;
-    /* display: none; */
+  display: flex;
+  color: var(--on-surface-variant);
+  text-align: center;
+  gap: 12px 6px;
+  margin-block-start: 28px;
 }
 
-.fade-in .footer {
-    display: flex;
-}
-
-.footer .body-3:last-child {
-    gap: 6px;
+.openweather-icon {
+  color: azure;
+  filter: invert(100%) sepia(0%) saturate(34%) hue-rotate(171deg)
+    brightness(124%) contrast(164%);
 }

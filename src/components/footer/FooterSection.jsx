@@ -1,10 +1,11 @@
 import React from "react";
 import './FooterSection.css'
+import OpenWeather from '../../assets/openweather.png';
 
 const FooterSection = () => {
   return (
     <footer className="footer">
-      <p className="body-3">Made by ❤</p>
+      <p className="body-3">Made with ❤</p>
 
       <p className="body-3">
         Powered By{" "}
@@ -15,7 +16,8 @@ const FooterSection = () => {
           rel="noopener"
         >
           <img
-            src="../../assets/openweather.png"
+            src={OpenWeather}
+            className="openweather-icon"
             loading="lazy"
             alt="openweather image"
             width="150"
